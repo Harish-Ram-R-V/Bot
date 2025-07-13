@@ -14,6 +14,7 @@ const int filterSize = 5;
 float distanceReadings[filterSize];
 int index = 0;
 
+// setup pins of uv sensor and motors
 void setup() {
   Serial.begin(9600);
   pinMode(trigPin, OUTPUT);
@@ -23,13 +24,14 @@ void setup() {
   pinMode(motor1B, OUTPUT);
   pinMode(motor2F, OUTPUT);
   pinMode(motor2B, OUTPUT);
-
+  // initialise reading array values to zero to begin with
   for (int i = 0; i < filterSize; i++)
   {
     distanceReadings[i] = 0;
   }
 }
 
+// function description to make reading and do desired bot movements
 void loop() {
   float distance = getDistance();
   distanceReadings[index] = distance;
@@ -54,6 +56,7 @@ void loop() {
   delay(100);
 }
 
+// get distance using basic physics formula
 float getDistance() 
 {
   digitalWrite(trigPin, LOW);
@@ -68,6 +71,7 @@ float getDistance()
   return distance;
 }
 
+// function to find median
 float getMedianDistance() 
 {
   float sorted[filterSize];
@@ -87,6 +91,8 @@ float getMedianDistance()
   return sorted[filterSize / 2];
 }
 
+
+// functions for bot movements (to send signals to motors)
 void moveForward() 
 {
   digitalWrite(motor1F, HIGH);

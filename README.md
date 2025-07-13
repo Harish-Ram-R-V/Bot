@@ -24,7 +24,7 @@ This implementation serves as an educational prototype and a baseline model for 
 
 **Results and Observations**
 
-The median filter significantly improved the robot's stability. In scenarios with reflective surfaces or sudden noise spikes, the unfiltered robot showed jittery behavior, while the filtered version maintained a consistent path. The robot responded reliably to obstacles and executed turning maneuvers with better timing and precision.
+I have used median filter method,so like if the boise it too high ,using average filter will lead to inappropriate data thus it gives improved the robot's stability. In scenarios with reflective surfaces or sudden noise spikes, the unfiltered robot showed jittery behavior, while the filtered version maintained a consistent path. The robot responded reliably to obstacles and executed turning maneuvers with better timing and precision.
 
 
 **Future Work**
